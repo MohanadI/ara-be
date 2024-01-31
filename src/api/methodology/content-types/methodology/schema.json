@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "methodologies",
+  "info": {
+    "singularName": "methodology",
+    "pluralName": "methodologies",
+    "displayName": "Methodology",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "methodologies"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}
