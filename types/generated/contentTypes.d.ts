@@ -787,6 +787,7 @@ export interface ApiBenefitBenefit extends Schema.CollectionType {
       'api::product.product'
     >;
     description: Attribute.Text;
+    icon: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
