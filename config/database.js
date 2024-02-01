@@ -8,10 +8,10 @@ module.exports = ({ env }) => {
       connection: {
         connectionString: env('DATABASE_URL'),
         host: env('DATABASE_HOST', 'localhost'),
-        port: env.int('DATABASE_PORT', 2003),
-        database: env('DATABASE_NAME', 'main_user_ara'),
-        user: env('DATABASE_USERNAME', 'main_user_ara'),
-        password: env('DATABASE_PASSWORD', '5o04e@v&Tm'),
+        port: env.int('DATABASE_PORT', 8888),
+        database: env('DATABASE_NAME', 'ara'),
+        user: env('DATABASE_USERNAME', 'root'),
+        password: env('DATABASE_PASSWORD', ''),
         ssl: env.bool('DATABASE_SSL', false) && {
           key: env('DATABASE_SSL_KEY', undefined),
           cert: env('DATABASE_SSL_CERT', undefined),

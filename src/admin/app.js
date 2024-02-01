@@ -1,4 +1,9 @@
 const config = {
+  translations: {
+    en: {
+      'app.components.LeftMenu.navbrand.title': 'ARA Admin',
+    }
+  },
   locales: [
     // 'ar',
     // 'fr',
