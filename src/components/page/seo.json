@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_seos",
+  "info": {
+    "displayName": "SEO",
+    "icon": "manyWays"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "meta_description": {
+      "type": "text"
+    },
+    "keywords": {
+      "type": "text"
+    }
+  }
+}

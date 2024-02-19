@@ -768,6 +768,38 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAboutPageAboutPage extends Schema.SingleType {
+  collectionName: 'about_pages';
+  info: {
+    singularName: 'about-page';
+    pluralName: 'about-pages';
+    displayName: 'About-Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Header: Attribute.Component<'page.header'>;
+    SEO: Attribute.Component<'page.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-page.about-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-page.about-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiBenefitBenefit extends Schema.CollectionType {
   collectionName: 'benefits';
   info: {
@@ -811,13 +843,16 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   info: {
     singularName: 'home-page';
     pluralName: 'home-pages';
-    displayName: 'home-page';
+    displayName: 'Home-Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    slider: Attribute.DynamicZone<['slider.slide']>;
+    Header: Attribute.Component<'page.header'>;
+    Slider: Attribute.Component<'slider.slide', true>;
+    SEO: Attribute.Component<'page.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -995,6 +1030,37 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
 }
 
+export interface ApiProductsPageProductsPage extends Schema.SingleType {
+  collectionName: 'products_pages';
+  info: {
+    singularName: 'products-page';
+    pluralName: 'products-pages';
+    displayName: 'Products-Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    SEO: Attribute.Component<'page.seo'>;
+    Header: Attribute.Component<'page.header'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::products-page.products-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::products-page.products-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiServiceService extends Schema.CollectionType {
   collectionName: 'services';
   info: {
@@ -1028,6 +1094,37 @@ export interface ApiServiceService extends Schema.CollectionType {
   };
 }
 
+export interface ApiServicesPageServicesPage extends Schema.SingleType {
+  collectionName: 'services_pages';
+  info: {
+    singularName: 'services-page';
+    pluralName: 'services-pages';
+    displayName: 'Services-Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    SEO: Attribute.Component<'page.seo'>;
+    Header: Attribute.Component<'page.header', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::services-page.services-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::services-page.services-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1046,13 +1143,16 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::about-page.about-page': ApiAboutPageAboutPage;
       'api::benefit.benefit': ApiBenefitBenefit;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::inbox.inbox': ApiInboxInbox;
       'api::methodology.methodology': ApiMethodologyMethodology;
       'api::module.module': ApiModuleModule;
       'api::product.product': ApiProductProduct;
+      'api::products-page.products-page': ApiProductsPageProductsPage;
       'api::service.service': ApiServiceService;
+      'api::services-page.services-page': ApiServicesPageServicesPage;
     }
   }
 }

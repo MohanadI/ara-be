@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_headers",
+  "info": {
+    "displayName": "Header",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "sub_title": {
+      "type": "string"
+    }
+  }
+}
