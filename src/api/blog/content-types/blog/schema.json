@@ -30,9 +30,6 @@
         "audios"
       ]
     },
-    "body": {
-      "type": "blocks"
-    },
     "sub_title": {
       "type": "string"
     },
@@ -41,6 +38,14 @@
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "blogs"
+    },
+    "body": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

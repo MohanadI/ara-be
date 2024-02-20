@@ -853,13 +853,20 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     slug: Attribute.UID & Attribute.Required;
     title: Attribute.String;
     image: Attribute.Media;
-    body: Attribute.Blocks;
     sub_title: Attribute.String;
     category: Attribute.Relation<
       'api::blog.blog',
       'manyToOne',
       'api::category.category'
     >;
+    body: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
