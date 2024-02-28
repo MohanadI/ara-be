@@ -46,6 +46,12 @@
         "preset": "rich"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "keywords": {
+      "type": "string"
+    },
+    "meta_description": {
+      "type": "text"
     }
   }
 }
