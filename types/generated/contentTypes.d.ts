@@ -1203,6 +1203,42 @@ export interface ApiServicesPageServicesPage extends Schema.SingleType {
   };
 }
 
+export interface ApiTalentTalent extends Schema.CollectionType {
+  collectionName: 'talents';
+  info: {
+    singularName: 'talent';
+    pluralName: 'talents';
+    displayName: 'talent';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    full_name: Attribute.String;
+    email: Attribute.String;
+    phone: Attribute.String;
+    location: Attribute.String;
+    specialty: Attribute.String;
+    links: Attribute.String;
+    uploads: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::talent.talent',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::talent.talent',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1233,6 +1269,7 @@ declare module '@strapi/types' {
       'api::products-page.products-page': ApiProductsPageProductsPage;
       'api::service.service': ApiServiceService;
       'api::services-page.services-page': ApiServicesPageServicesPage;
+      'api::talent.talent': ApiTalentTalent;
     }
   }
 }
